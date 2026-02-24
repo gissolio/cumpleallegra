@@ -106,7 +106,7 @@
     background: rgba(255,255,255,0.3);
   }
 
-  button, .map-button {
+  button {
     background: #ff2e93;
     color: #fff;
     border: none;
@@ -117,12 +117,27 @@
     cursor: pointer;
     margin-top: 15px;
     transition: background 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
   }
 
-  button:hover, .map-button:hover {
+  button:hover {
     background: #e02b85;
+  }
+
+  .map-button {
+    display: inline-block;
+    margin: 10px 0 15px 0; /* Más cerca del detalle, menos espacio superior */
+    padding: 12px 20px;
+    background: rgba(135, 206, 250, 0.5); /* Celeste semitransparente */
+    color: #fff;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+  }
+
+  .map-button:hover {
+    background: rgba(135, 206, 250, 0.7);
   }
 
 </style>
@@ -132,7 +147,7 @@
 <div class="card">
   <div class="title">🎀 BLACKPINK PARTY 🎀</div>
   <div class="name">Allegra Oriana Issolio</div>
-  <div class="subtitle">celebra sus 11 años</div>
+  <div class="subtitle">Celebra sus 11 años</div>
   <div class="line"></div>
   <div class="details">
     📅 27 de Febrero · de 20:00hs a 23:00hs<br>

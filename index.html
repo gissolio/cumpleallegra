@@ -10,10 +10,7 @@
 
   body {
     font-family: 'Montserrat', sans-serif;
-    background-image: url("https://images8.alphacoders.com/848/thumb-1920-848775.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: #e0e0e0; /* Fondo gris */
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -21,16 +18,12 @@
     padding: 20px;
   }
 
-  .overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 1;
-  }
-
   .card {
-    background: rgba(255,255,255,0.95);
-    color: #000;
+    background-image: url("https://images8.alphacoders.com/848/thumb-1920-848775.jpg"); /* Imagen BLACKPINK */
+    background-size: cover;
+    background-position: center;
+    color: #fff; /* Texto blanco sobre la imagen */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
     max-width: 400px;
     width: 100%;
     border-radius: 20px;
@@ -38,7 +31,20 @@
     padding: 30px;
     text-align: center;
     position: relative;
-    z-index: 2;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4); /* Overlay semitransparente para mejor legibilidad */
+    border-radius: 20px;
+    z-index: 1;
+  }
+
+  .card > * {
+    position: relative;
+    z-index: 2; /* Mantener el contenido encima del overlay */
   }
 
   .title {
@@ -57,13 +63,11 @@
 
   .subtitle {
     font-size: 1rem;
-    color: #333;
     margin-bottom: 20px;
   }
 
   .details {
     font-size: 0.95rem;
-    color: #555;
     margin-bottom: 25px;
     line-height: 1.4;
   }
@@ -100,35 +104,42 @@
     margin: 15px auto;
   }
 
-  iframe {
-    border: 0;
-    width: 100%;
-    height: 200px;
-    border-radius: 12px;
+  .map-button {
+    display:inline-block;
     margin-top: 15px;
+    padding: 12px 20px;
+    background: #ff2e93;
+    color: white;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
   }
+
+  .map-button:hover {
+    background: #e02b85;
+  }
+
 </style>
 </head>
 <body>
 
-<div class="overlay"></div>
-
 <div class="card">
   <div class="title">🎀 BLACKPINK PARTY 🎀</div>
   <div class="name">Allegra Oriana Issolio</div>
-  <div class="subtitle">celebra sus 11 años</div>
+  <div class="subtitle">Celebra sus 11 años</div>
   <div class="line"></div>
   <div class="details">
     📅 27 de Febrero · de 20:00hs a 23:00hs<br>
     📍 Lugar: JACKSONBURGER
   </div>
 
-<!-- Botón para abrir la dirección en Google Maps -->
-<a href="https://www.google.com/maps/place/Bv+General+J,+Blvd.+Roca+3205,+San+Francisco,+Córdoba"
-   target="_blank" rel="noopener noreferrer"
-   style="display:inline-block; margin-top: 15px; padding: 12px 20px; background: #ff2e93; color: white; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1rem;">
-  Dirección
-</a>
+  <!-- Botón para abrir la dirección en Google Maps -->
+  <a href="https://www.google.com/maps/place/Bv+General+J,+Blvd.+Roca+3205,+San+Francisco,+Córdoba"
+     target="_blank" rel="noopener noreferrer"
+     class="map-button">
+    Dirección
+  </a>
 
   <input type="text" id="nombre" placeholder="Nombre del invitado" required>
   
@@ -163,9 +174,7 @@ function enviarWhatsApp() {
 </script>
 
 </body>
-
 </html>
-
 
 
 

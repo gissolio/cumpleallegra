@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación Cumple Sofía</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: url("https://images8.alphacoders.com/848/thumb-1920-848775.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.95);
+    color: #000;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .title {
+    color: #ff2e93;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+
+  .name {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .details {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.4;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 0.95rem;
+  }
+
+  button {
+    background: #ff2e93;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+  }
+
+  button:hover {
+    background: #e02b85;
+  }
+
+  .line {
+    width: 60px;
+    height: 2px;
+    background: #ff2e93;
+    margin: 15px auto;
+  }
+
+  iframe {
+    border: 0;
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    margin-top: 15px;
+  }
+</style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<div class="card">
+  <div class="title">🎀 BLACKPINK PARTY 🎀</div>
+  <div class="name">Sofía</div>
+  <div class="subtitle">celebra sus 8 años</div>
+  <div class="line"></div>
+  <div class="details">
+    📅 15 de marzo · 17 hs<br>
+    📍 Dirección del evento
+  </div>
+
+  <!-- Mapa de Google -->
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.123456789012!2d-60.123456789!3d-31.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b123456789abcdef%3A0xabcdef1234567890!2sTu%20Lugar!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar" 
+    allowfullscreen="" 
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+
+  <input type="text" id="nombre" placeholder="Nombre del invitado" required>
+  
+  <select id="asistencia">
+    <option value="">¿Asistirá?</option>
+    <option value="Sí">Sí asistiré</option>
+    <option value="No">No podré asistir</option>
+  </select>
+  
+  <button onclick="enviarWhatsApp()">Confirmar asistencia</button>
+</div>
+
+<script>
+function enviarWhatsApp() {
+  var nombre = document.getElementById("nombre").value;
+  var asistencia = document.getElementById("asistencia").value;
+
+  if(nombre === "" || asistencia === "") {
+    alert("Por favor completá todos los campos.");
+    return;
+  }
+
+  var mensaje = "Hola! Soy " + nombre + 
+                " y confirmo que " + asistencia + 
+                " asistiré al cumple de Sofía 🎀";
+
+  var telefono = "5493411234567"; // tu número con código país
+  var url = "https://wa.me/" + telefono + "?text=" + encodeURIComponent(mensaje);
+
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
